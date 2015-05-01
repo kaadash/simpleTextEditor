@@ -5,11 +5,14 @@
 	<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
 	<script type="text/javascript" src="js/underscore-min.js"></script>
 	<script type="text/javascript" src="js/backbone.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 <div class="text-area">
 	<script type="text/template" id="input-template">
-		<input type="text" value=<%= content %> />
+		<textarea id="text-input"><%= content %></textarea>
+		<button>Zapisz!</button>
+		<article id="text-length"><%= length %></article>
 	</script>
 </div>
 <script type="text/javascript" src="js/model/inputModel.js"></script>

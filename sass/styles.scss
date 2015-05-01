@@ -1,0 +1,21 @@
+@mixin centering(){
+	display: block;
+	margin-left: auto;
+	margin-right: auto;	
+}
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+}
+#text-input {
+	height: 300px;
+	width: 600px;
+	@include centering();
+}
+#text-length {
+	text-align: center;
+}
+button {
+	@include centering();
+}
