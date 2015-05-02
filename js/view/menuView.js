@@ -1,8 +1,10 @@
 var StyleInputView = Backbone.View.extend({
 	tagName: 'li',
+	className: 'list',
 	template: _.template($('#menu-template').html()),
 	events: {
-		'click': 'changeStyle'
+		'click': 'changeStyle',
+
 	},
 	initialize: function() {
 		this.render();
@@ -11,8 +13,12 @@ var StyleInputView = Backbone.View.extend({
 		this.$el.html(this.template(this.model.toJSON()));
 		return this;
 	},
-	changeStyle: function(){
-		$('#text-input').css('font-weight',this.model.get('name'));
+	changeStyle: function(){	
+		var styledText = this.model.get('typeStart') + window.globalText + this.model.get('typeEnd');	
+		var fullText = $('#text-input').val().toString();
+		var changedText = fullText.replace(window.globalText, styledText);
+		window.changedText = changedText;	
+		console.log(window.changedText);		
 	}
 });
 

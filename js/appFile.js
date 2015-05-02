@@ -2,8 +2,8 @@ var inputText = new InputText();
 var inputView = new InputView({model: inputText});
 
 var styleNormal = new StyleInput({name: 'normal'});
-var styleBold = new StyleInput({name: 'bold', type: 'bold'});
-var styleCursive = new StyleInput({name: 'lighter', type: '<i>'})
+var styleBold = new StyleInput({name: 'bold', typeStart: '<b>', typeEnd: '</b>'});
+var styleCursive = new StyleInput({name: 'lighter', typeStart: '<i>', typeEnd: '</i>'});
 var listStyle = new ListStyle([styleNormal, styleBold, styleCursive]);
 
 var listStyleView = new ListStyleView({collection: listStyle});
