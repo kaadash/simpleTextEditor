@@ -9,14 +9,20 @@
 </head>
 <body>
 <div class="text-area">
+	<script type="text/template" id="menu-template">
+		<%= name %>
+	</script>
 	<script type="text/template" id="input-template">
 		<textarea id="text-input"><%= content %></textarea>
 		<button>Zapisz!</button>
-		<article id="text-length"><%= length %></article>
+		<article id="text-length">Characters: <%= length %></article>
 	</script>
 </div>
 <script type="text/javascript" src="js/model/inputModel.js"></script>
 <script type="text/javascript" src="js/view/inputView.js"></script>
+<script type="text/javascript" src="js/model/styleItem.js"></script>
+<script type="text/javascript" src="js/collection/menuListStyle.js"></script>
+<script type="text/javascript" src="js/view/menuView.js"></script>
 <script type="text/javascript" src="js/appFile.js"></script>
 </body>
 </html>

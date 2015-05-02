@@ -1,7 +1,7 @@
 var InputText = Backbone.Model.extend({
 	defaults: {
 		content: '',
-		length: '',
+		length: 0,
 		style: '',
 		font: '',
 		fontSize: ''

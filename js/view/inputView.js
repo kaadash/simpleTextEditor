@@ -15,6 +15,6 @@ var InputView = Backbone.View.extend({
 	countLetters: function(){
 		var textLength = $('#text-input').val().length;
 		this.model.set('length', textLength);
-		$('#text-length').html(textLength);
+		$('#text-length').html('Characters: ' + this.model.get('length'));
 	}
 });

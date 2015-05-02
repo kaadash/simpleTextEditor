@@ -17,3 +17,15 @@ button {
   display: block;
   margin-left: auto;
   margin-right: auto; }
+
+.menu {
+  list-style-type: none; }
+  .menu li {
+    margin: 10px;
+    display: none;
+    cursor: pointer; }
+  .menu li:first-child {
+    display: block; }
+
+.menu:hover li {
+  display: block; }

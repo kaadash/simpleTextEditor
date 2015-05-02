@@ -19,3 +19,18 @@ body {
 button {
 	@include centering();
 }
+.menu {
+	list-style-type: none;	
+	li {
+		margin: 10px;
+		//position: absolute;
+		display: none;
+		cursor: pointer;
+	}
+	li:first-child {
+		display: block;
+	}
+}
+.menu:hover li{
+		display: block;
+	}
