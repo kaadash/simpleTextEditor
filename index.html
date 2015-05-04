@@ -12,10 +12,15 @@
 	<script type="text/template" id="menu-template">
 		<%= name %>
 	</script>
+	<script type="text/template" id="menu-font">
+		<input placeholder=<%= fontName %>></input>
+	</script>
+
 	<script type="text/template" id="input-template">
 		<textarea id="text-input"><%= content %></textarea>
 		<button>Zapisz!</button>
 		<article id="text-length">Characters: <%= length %></article>
+		<article id="text-output"><%= content %></article>
 	</script>
 </div>
 <script type="text/javascript" src="js/model/inputModel.js"></script>
@@ -23,6 +28,8 @@
 <script type="text/javascript" src="js/model/styleItem.js"></script>
 <script type="text/javascript" src="js/collection/menuListStyle.js"></script>
 <script type="text/javascript" src="js/view/menuView.js"></script>
+<script type="text/javascript" src="js/model/chooseFont.js"></script>
+<script type="text/javascript" src="js/view/chooseFontView.js"></script>
 <script type="text/javascript" src="js/appFile.js"></script>
 </body>
 </html>

@@ -11,12 +11,14 @@ var InputView = Backbone.View.extend({
 
 	},
 	render: function(){
-		this.$el.html(this.template(this.model.toJSON()));		
+		this.$el.html(this.template(this.model.toJSON()));
 		return this;
 	},
 	countLetters: function(){
 		var textLength = $('#text-input').val().length;
+		this.model.set('tempContent', $('#text-input').val());
 		this.model.set('length', textLength);
+		$('#text-output').html(this.model.get('tempContent'));
 		$('#text-length').html('Characters: ' + this.model.get('length'));
 	},
 	selectText: function(){
