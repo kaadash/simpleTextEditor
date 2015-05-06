@@ -9,11 +9,13 @@
 </head>
 <body>
 <div class="text-area">
+
 	<script type="text/template" id="menu-template">
 		<%= name %>
 	</script>
 	<script type="text/template" id="menu-font">
-		<input placeholder=<%= fontName %>></input>
+		<input class="font-input" placeholder=<%= fontName %>></input>
+		<div class="filling"><%= fontName %></div>
 	</script>
 
 	<script type="text/template" id="input-template">
@@ -26,10 +28,10 @@
 <script type="text/javascript" src="js/model/inputModel.js"></script>
 <script type="text/javascript" src="js/view/inputView.js"></script>
 <script type="text/javascript" src="js/model/styleItem.js"></script>
-<script type="text/javascript" src="js/collection/menuListStyle.js"></script>
 <script type="text/javascript" src="js/view/menuView.js"></script>
 <script type="text/javascript" src="js/model/chooseFont.js"></script>
 <script type="text/javascript" src="js/view/chooseFontView.js"></script>
+<script type="text/javascript" src="js/collection/menuListStyle.js"></script>
 <script type="text/javascript" src="js/appFile.js"></script>
 </body>
 </html>

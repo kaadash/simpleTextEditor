@@ -1,1 +1,1 @@
-var ChooseFontView=Backbone.View.extend({template:_.template($("#menu-font").html()),initialize:function(){this.render()},render:function(){return this.$el.html(this.template(this.model.toJSON())),this}});
+var ChooseFontView=Backbone.View.extend({tagName:"li",className:"font-class",template:_.template($("#menu-font").html()),initialize:function(){this.render()},render:function(){return this.$el.html(this.template(this.model.toJSON())),this}});

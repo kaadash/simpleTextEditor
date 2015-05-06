@@ -1,1 +1,1 @@
-var ListStyle=Backbone.Collection.extend({model:StyleInput});
+var ListStyle=Backbone.Collection.extend({model:StyleInput}),Fonts=Backbone.Collection.extend({model:ChooseFont});

@@ -38,3 +38,29 @@ var ListStyleView = Backbone.View.extend({
 		return this; 
 	}
 });
+
+var FontsView = Backbone.View.extend({
+	tagName: 'ul',
+	className: 'menu-font',
+	events: {
+		'keypress .font-input': 'showOptions'
+	},
+	initialize: function(){
+		this.input = this.$('.font-input');
+		this.render();
+	},
+	render: function(){
+		this.collection.each(function(font){
+			var fontView = new ChooseFontView({model: font});
+			this.$el.append(fontView.render().el);
+		}, this);
+		return this;
+	},
+	showOptions: function(){
+		this.$el.find('.filling').css('display','block');
+		this.$el.children().css('display', 'block');
+		// var searchText = this.$el.html();
+		// var textToFind = $('.font-input').val();
+		
+	}
+});

@@ -33,4 +33,27 @@ button {
 }
 .menu:hover li{
 		display: block;
+}
+.menu-font {
+	li {
+		display: none;
+		.filling {
+			display: none;
+		}
+		.font-input {
+			display: none;
+		}
 	}
+	li:first-child {
+		display: block;
+		.font-input {
+			display: block;
+		}
+	}
+}
+// input {
+// 	display: none;
+// }
+// input:first-child{
+// 	display: block;
+// }

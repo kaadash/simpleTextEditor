@@ -29,3 +29,14 @@ button {
 
 .menu:hover li {
   display: block; }
+
+.menu-font li {
+  display: none; }
+  .menu-font li .filling {
+    display: none; }
+  .menu-font li .font-input {
+    display: none; }
+.menu-font li:first-child {
+  display: block; }
+  .menu-font li:first-child .font-input {
+    display: block; }
