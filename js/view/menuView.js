@@ -43,11 +43,11 @@ var FontsView = Backbone.View.extend({
 	tagName: 'ul',
 	className: 'menu-font',
 	events: {
-		'keypress .font-input': 'showOptions'
+		'keyup .font-input': 'showOptions'
 	},
 	initialize: function(){
-		this.input = this.$('.font-input');
 		this.render();
+		window.textLength = 0;
 	},
 	render: function(){
 		this.collection.each(function(font){
@@ -57,10 +57,22 @@ var FontsView = Backbone.View.extend({
 		return this;
 	},
 	showOptions: function(){
+		var l = window.textLength++;
+		var fullFontList = '';
 		this.$el.find('.filling').css('display','block');
 		this.$el.children().css('display', 'block');
-		// var searchText = this.$el.html();
-		// var textToFind = $('.font-input').val();
-		
+		var text = $('.font-input').val();
+		var matchingModels = this.collection.pluck('fontName');
+		for (var i = matchingModels.length - 1; i >= 0; i--) {
+			if(matchingModels[i].substr(0,l) !== text) {
+				matchingModels.splice(i, 1);
+			}
+		};
+		for (var i = 0; i < matchingModels.length; i++) {
+			fullFontList += '<li>'+matchingModels[i]+'</li>';
+		// console.log(matchingModels);
+		}
+		$('.fontList').html(fullFontList);
+		fullFontList='';
 	}
 });
