@@ -7,6 +7,7 @@ var StyleInputView = Backbone.View.extend({
 
 	},
 	initialize: function() {
+
 		this.render();
 	},
 	render: function(){
@@ -40,14 +41,18 @@ var ListStyleView = Backbone.View.extend({
 });
 
 var FontsView = Backbone.View.extend({
+	el: '#search-font',
 	tagName: 'ul',
 	className: 'menu-font',
 	events: {
-		'keyup .font-input': 'showOptions'
+		'keyup .font-input': 'showOptions',
+		'click .font-input': 'showAllOptions'
 	},
 	initialize: function(){
+		this.input = this.$('.font-input');
 		this.render();
 		window.textLength = 0;
+
 	},
 	render: function(){
 		this.collection.each(function(font){
@@ -56,23 +61,51 @@ var FontsView = Backbone.View.extend({
 		}, this);
 		return this;
 	},
-	showOptions: function(){
-		var l = window.textLength++;
-		var fullFontList = '';
-		this.$el.find('.filling').css('display','block');
-		this.$el.children().css('display', 'block');
+	settingModelTrue: function(){
+		for (var i = this.collection.length - 1; i >= 0; i--) {
+				this.collection.at(i).set('selected', true);
+			};
+	},
+	showAllOptions: function(){
+		this.settingModelTrue();
+	},
+	showOptions: function(e){
+		var indexOfModels = [];
 		var text = $('.font-input').val();
+		this.settingModelTrue();			
+		if(text.length === 0) {
+			console.log('siema');
+			window.textLength = 0;
+		}
+		if(e.keyCode!==16 && e.keyCode!==8) {
+			window.textLength++;			
+		}
+		if(e.keyCode===8 && window.textLength !== 0){
+			window.textLength--;
+		}
+		var l = window.textLength;
 		var matchingModels = this.collection.pluck('fontName');
 		for (var i = matchingModels.length - 1; i >= 0; i--) {
 			if(matchingModels[i].substr(0,l) !== text) {
 				matchingModels.splice(i, 1);
 			}
 		};
-		for (var i = 0; i < matchingModels.length; i++) {
-			fullFontList += '<li>'+matchingModels[i]+'</li>';
-		// console.log(matchingModels);
+		for (var i = 0; i < matchingModels.length; i++) {	
+			for (var j = 0; j < this.collection.length; j++) {
+				if(this.collection.at(j).get('fontName') !== matchingModels[i]){
+					this.collection.at(j).set('selected', false);
+					console.log(this.collection.at(j).get('fontName')+ ' '+j);		
+				}
+				else {
+					indexOfModels.push(j);
+				}
+			};
 		}
-		$('.fontList').html(fullFontList);
-		fullFontList='';
+		for (var i = indexOfModels.length - 1; i >= 0; i--) {
+			this.collection.at(indexOfModels[i]).set('selected', true);
+		};
+		if(text.length === 0){
+			this.settingModelTrue();			
+		}
 	}
 });

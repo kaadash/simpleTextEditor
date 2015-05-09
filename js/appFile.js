@@ -7,11 +7,11 @@ var styleCursive = new StyleInput({name: 'lighter', typeStart: '<i>', typeEnd: '
 var listStyle = new ListStyle([styleNormal, styleBold, styleCursive]);
 
 var chooseArial = new ChooseFont();
-var chooseArial1 = new ChooseFont();
-var chooseArtur = new ChooseFont({fontName: 'Artur'});
-var chooseTahoma = new ChooseFont({fontName: 'Tahoma'});
-var chooseTimes = new ChooseFont({fontName: 'Times New Roman'});
-var fontsCollection = new Fonts([chooseArtur, chooseArial, chooseArial1, chooseTahoma, chooseTimes]);
+var chooseSans = new ChooseFont({fontName: 'Open Sans'});
+var chooseHelvetica = new ChooseFont({fontName: 'Helvetica'});
+var chooseTahoma = new ChooseFont({fontName: 'tahoma'});
+var chooseTimes = new ChooseFont({fontName: 'times New Roman'});
+var fontsCollection = new Fonts([chooseSans, chooseArial, chooseHelvetica, chooseTahoma, chooseTimes]);
 //var choseArialView = new ChooseFontView({model: choseArial});
 
 var listStyleView = new ListStyleView({collection: listStyle});

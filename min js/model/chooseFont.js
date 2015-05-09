@@ -1,1 +1,1 @@
-var ChooseFont=Backbone.Model.extend({defaults:{fontName:"Arial",startTag:"<kbd>",endTag:"</kbd>"}});
+var ChooseFont=Backbone.Model.extend({defaults:{fontName:"Arial",startTag:"<kbd>",endTag:"</kbd>",selected:!1}});
