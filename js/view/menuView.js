@@ -47,6 +47,7 @@ var FontsView = Backbone.View.extend({
 	events: {
 		'keyup .font-input': 'showOptions',
 		'click .font-input': 'showAllOptions'
+
 	},
 	initialize: function(){
 		this.input = this.$('.font-input');
@@ -61,26 +62,25 @@ var FontsView = Backbone.View.extend({
 		}, this);
 		return this;
 	},
-	settingModelTrue: function(){
+	settingModelBool: function(bool){
 		for (var i = this.collection.length - 1; i >= 0; i--) {
-				this.collection.at(i).set('selected', true);
+				this.collection.at(i).set('selected', bool);
 			};
 	},
 	showAllOptions: function(){
-		this.settingModelTrue();
+		this.settingModelBool(true);
 	},
 	showOptions: function(e){
 		var indexOfModels = [];
 		var text = $('.font-input').val();
-		this.settingModelTrue();			
+		this.settingModelBool(true);			
 		if(text.length === 0) {
-			console.log('siema');
 			window.textLength = 0;
 		}
 		if(e.keyCode!==16 && e.keyCode!==8) {
 			window.textLength++;			
 		}
-		if(e.keyCode===8 && window.textLength !== 0){
+		else if(e.keyCode===8 && window.textLength !== 0){
 			window.textLength--;
 		}
 		var l = window.textLength;
@@ -101,11 +101,15 @@ var FontsView = Backbone.View.extend({
 				}
 			};
 		}
+
 		for (var i = indexOfModels.length - 1; i >= 0; i--) {
 			this.collection.at(indexOfModels[i]).set('selected', true);
 		};
+		if(text.length !== 0 && indexOfModels.length === 0) {
+			this.settingModelBool(false);
+		}
 		if(text.length === 0){
-			this.settingModelTrue();			
+			this.settingModelBool(true);			
 		}
 	}
 });
