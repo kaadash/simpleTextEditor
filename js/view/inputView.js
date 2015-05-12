@@ -15,10 +15,11 @@ var InputView = Backbone.View.extend({
 		return this;
 	},
 	countLetters: function(){
-		var textLength = $('#text-input').val().length;
-		this.model.set('tempContent', $('#text-input').val());
+		var textLength = $('#text-input').text().length;
+		// console.log(textLength.length);
+		this.model.set('tempContent', $('#text-input').text());
 		this.model.set('length', textLength);
-		$('#text-output').html(this.model.get('tempContent'));
+		// $('#text-output').html(this.model.get('tempContent'));
 		$('#text-length').html('Characters: ' + this.model.get('length'));
 	},
 	selectText: function(){
@@ -30,7 +31,7 @@ var InputView = Backbone.View.extend({
 		window.globalText = text;
 		if(typeof window.changedText !== 'undefined' ){
 			this.model.set('content', window.changedText);
-			console.log(this.model.get('content'));
+			// console.log(this.model.get('content'));
 			this.model.set('tempContent', window.changedText);
 			this.render();
 			delete window.changedText;

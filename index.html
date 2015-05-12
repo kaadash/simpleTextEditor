@@ -12,17 +12,16 @@
 		<%= name %>
 	</script>
 <div class="text-area">
-
 	<script type="text/template" id="menu-font">
 		<!-- <input class="font-input" placeholder=<%= fontName %>></input> -->
 		<%= fontName %>
 	</script>
 
 	<script type="text/template" id="input-template">
-		<textarea id="text-input"><%= content %></textarea>
+		<p contenteditable="true" id="text-input"><%= content %></p>
 		<button>Zapisz!</button>
 		<article id="text-length">Characters: <%= length %></article>
-		<article id="text-output"><%= content %></article>
+		<!-- <article id="text-output"><%= content %></article> -->
 	</script>
 </div>
 	<section id='search-font'>

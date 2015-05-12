@@ -24,7 +24,7 @@ var ChooseFontView = Backbone.View.extend({
 	},
 	fillFont: function(){
 		$('.font-input').val(this.model.get('fontName'));
-		var fullText = $('#text-input').val().toString();
+		var fullText = $('#text-input').html();
 		var textToChange = this.model.get('startTag') + window.globalText + this.model.get('endTag');
 		var changedText = fullText.replace(window.globalText, textToChange);
 		window.changedText = changedText;	

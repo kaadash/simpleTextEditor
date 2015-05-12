@@ -48,7 +48,7 @@ var ListStyleView = Backbone.View.extend({
 			if(this.collection.at(i).get('name') === textOption) {
 				var thatModel = this.collection.at(i);
 				var styledText = thatModel.get('typeStart') + window.globalText + thatModel.get('typeEnd');	
-				var fullText = $('#text-input').val().toString();
+				var fullText = $('#text-input').html();
 				var changedText = fullText.replace(window.globalText, styledText);
 				window.changedText = changedText;	
 				console.log(window.changedText);				
@@ -125,8 +125,8 @@ var FontsView = Backbone.View.extend({
 		if(e.keyCode === 13 && indexOfModels.length === 1) {
 			var thatModel = this.collection.at(indexOfModels);
 			$('.font-input').val(thatModel.get('fontName'));
-			var fullText = $('#text-input').val().toString();
-			var textToChange = window.globalText + thatModel.get('startTag') + thatModel.get('endTag');
+			var fullText = $('#text-input').html();
+			var textToChange = thatModel.get('startTag') + window.globalText + thatModel.get('endTag');
 			var changedText = fullText.replace(window.globalText, textToChange);
 			window.changedText = changedText;	
 			// var SearchInput = $('.text-input');
